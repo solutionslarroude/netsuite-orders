@@ -1,0 +1,50 @@
+# Arquivos de credenciais sensíveis
+credentials/credentials.json
+
+# Ambiente virtual
+venv/
+.env
+*.env
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Logs e arquivos temporários
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.swp
+*.swo
+.DS_Store
+*.pid
+
+# Configurações de IDEs
+.vscode/
+.idea/
+
+# Arquivos do sistema
+*.bak
+*.tmp
+
+# Arquivos de cache
+.cache/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Arquivos gerados
+*.gz
+*.zip
+*.tar
+*.rar
+*.7z
