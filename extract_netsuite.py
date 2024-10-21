@@ -22,15 +22,16 @@ body = json.dumps({
     "q": """
     SELECT
         t.tranid AS order_number,
-        tl.custcol_buma_celigo_item_sku AS sku,
-        tl.quantitycommitted AS committed_quantity
+            tl.custcol_buma_celigo_item_sku AS sku,
+            tl.quantitycommitted AS committed_quantity		
+                
     FROM
         TransactionLine tl
     JOIN
         Transaction t
         ON t.id = tl.transaction
     WHERE
-       tl.quantitycommitted = 1
+        tl.quantitybackordered = 0
     """
 })
 
@@ -46,7 +47,7 @@ max_retries = 5
 
 def send_to_bigquery(df):
 
-    credentials_path = "./home/samuel_alexandre/netsuite/credentials/credentials.json" 
+    credentials_path = "./credentials/credentials.json" 
     credentials = service_account.Credentials.from_service_account_file(credentials_path)
 
     project_id = 'larroude-data-prod'
