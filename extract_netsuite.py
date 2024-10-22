@@ -47,7 +47,7 @@ max_retries = 5
 
 def send_to_bigquery(df):
 
-    credentials_path = "./credentials/credentials.json" 
+    credentials_path = "/home/samuel_alexandre/shopify_orders/credentials/credentials.json" 
     credentials = service_account.Credentials.from_service_account_file(credentials_path)
 
     project_id = 'larroude-data-prod'
