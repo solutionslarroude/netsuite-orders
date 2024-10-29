@@ -47,7 +47,7 @@ max_retries = 5
 
 def send_to_bigquery(df):
 
-    credentials_path = "/home/samuel_alexandre/shopify_orders/credentials/credentials.json" 
+    credentials_path = "./config/config.json" 
     credentials = service_account.Credentials.from_service_account_file(credentials_path)
 
     project_id = 'larroude-data-prod'
@@ -56,9 +56,8 @@ def send_to_bigquery(df):
     pandas_gbq.to_gbq(df, table_id, project_id=project_id, credentials=credentials, if_exists='replace')
 
 def remove_tamanho_sku(sku):
-    # Expressão regular para remover tamanhos no formato X.X (ex.: 7.0) ou X/Y (ex.: 4/5)
-    # Garantir que outros números no SKU sejam mantidos
-    return re.sub(r'-\d+/\d+|-?\d+\.\d+-', '-', sku)
+    # Expressão regular para capturar e remover tamanhos no formato '6/7', '7.0', etc., sem afetar outros números
+    return re.sub(r'-\d+(/\d+|\.\d+)?-', '-', sku)
 
 def fetch_and_send_data():
     global next_url, retry_count
