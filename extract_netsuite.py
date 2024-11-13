@@ -21,7 +21,7 @@ url = "https://9468787.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
 body = json.dumps({
     "q": """
     SELECT
-        tl.custcol_buma_celigo_item_sku,
+        tl.custcol_buma_celigo_item_sku AS sku,
         tl.inventoryreportinglocation,
         t.tranid 
     FROM
