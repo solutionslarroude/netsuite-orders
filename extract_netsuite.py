@@ -31,6 +31,8 @@ body = json.dumps({
     WHERE
         tl.quantitybackordered = 0 
         AND (tl.inventoryreportinglocation = 207 OR tl.inventoryreportinglocation = 212)
+        AND t.createddate >= TO_DATE('2024-11-12', 'YYYY-MM-DD');
+
 
 
     """
