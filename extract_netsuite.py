@@ -30,7 +30,7 @@ body = json.dumps({
         Transaction t ON t.id = tl.transaction
     WHERE
         tl.quantitybackordered = 0 
-        AND tl.inventoryreportinglocation = 207;
+        AND tl.inventoryreportinglocation = 207 or tl.inventoryreportinglocation = 212
 
     """
 })
