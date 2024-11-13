@@ -21,17 +21,17 @@ url = "https://9468787.suitetalk.api.netsuite.com/services/rest/query/v1/suiteql
 body = json.dumps({
     "q": """
     SELECT
-        t.tranid AS order_number,
-            tl.custcol_buma_celigo_item_sku AS sku,
-            tl.quantitycommitted AS committed_quantity		
-                
+        tl.custcol_buma_celigo_item_sku,
+        tl.inventoryreportinglocation,
+        t.tranid 
     FROM
         TransactionLine tl
     JOIN
-        Transaction t
-        ON t.id = tl.transaction
+        Transaction t ON t.id = tl.transaction
     WHERE
-        tl.quantitybackordered = 0
+        tl.quantitybackordered = 0 
+        AND tl.inventoryreportinglocation = 207;
+
     """
 })
 
