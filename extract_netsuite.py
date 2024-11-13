@@ -23,7 +23,7 @@ body = json.dumps({
     SELECT
         tl.custcol_buma_celigo_item_sku AS sku,
         tl.inventoryreportinglocation,
-        t.tranid 
+        t.tranid AS order_number
     FROM
         TransactionLine tl
     JOIN
